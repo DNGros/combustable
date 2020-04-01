@@ -24,9 +24,9 @@ AssertTensor(a).is_close_to([[1.01, 2, 3]], epsilon=1e-1)
 AssertTensor(a).has_shape(1, 3)
 ```
 
-The autocasting when comparing with lists was the main motivation for
-combustable. Right now Combustable's output on failure is ok, but also want to
-eventually make it much more pretty.
+The autocasting when comparing with lists was one of the main motivation for
+Combustable. Right now Combustable's output on failure is ok (better than a naked assertion, at least), 
+but also want to eventually make it much more pretty/debug-friendly.
 
 ## Assertions on assign.
 
