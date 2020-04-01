@@ -1,10 +1,7 @@
-This is simple WIP hacky testing/assertion/logging library for pytorch stuff.
+This is simple WIP hacky testing/assertion/logging library for Pytorch stuff.
 
 It was mostly intended for personal use. As I continue add to it I'll hopefully
 eventually clean it up so others could more easily use.
-
-
-# Probably broken/outdated examples
 
 ## Nice assertions on tensors
 
@@ -24,15 +21,19 @@ AssertTensor(a).is_close_to([[1, 2, 3]])
 # Depending on what you're doing might need to adjust epsilon
 AssertTensor(a).is_close_to([[1.01, 2, 3]], epsilon=1e-1)
 # Other kinds of assertions
-AssertTensor(a).has_shape(1, 2)
+AssertTensor(a).has_shape(1, 3)
 ```
+
+The autocasting when comparing with lists was the main motivation for
+combustable. Right now Combustable's output on failure is ok, but also want to
+eventually make it much more pretty.
 
 ## Assertions on assign.
 
 A common idiom in pytorch is unpacking the shape of something
 and then verify the shape is as expected. 
 
-Combustable provides some syntactic sugar for doing this more concisely.
+Combustable introduces some syntactic sugar for doing this more concisely.
 
 ```Python
 # Without this sugar
@@ -51,6 +52,6 @@ def my_cool_layer_func(a: torch.Tensor, b.torch.Tensor):
     batch_size, seq_len, hidden = a.shape
     eq[batch_size], class_ind = b.shape
     # If the first dim of `b` != batch_size we will get an error.
-    # The assertion is automatic. This is concise and avoids poluting our namespace
+    # The assertion is automatic. This is concise and avoids polluting our namespace
     # with a temp variable.
 ```
