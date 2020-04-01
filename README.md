@@ -55,3 +55,9 @@ def my_cool_layer_func(a: torch.Tensor, b.torch.Tensor):
     # The assertion is automatic. This is concise and avoids polluting our namespace
     # with a temp variable.
 ```
+
+# Install
+
+```bash
+pip install git+github.com:DNGros/combustable.git
+```
