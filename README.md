@@ -59,5 +59,10 @@ def my_cool_layer_func(a: torch.Tensor, b.torch.Tensor):
 # Install
 
 ```bash
-pip install git+github.com:DNGros/combustable.git
+pip install git+https://github.com/DNGros/combustable.git
+# OR
+git clone https://github.com/DNGros/combustable.git
+cd combustable
+pip install .
 ```
+Like I mentioned, it's mostly WIP/for personal use. So no pypi package yet.
