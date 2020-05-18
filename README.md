@@ -37,7 +37,7 @@ Combustable introduces some syntactic sugar for doing this more concisely.
 
 ```Python
 # Without this sugar
-def my_cool_layer_func(a: torch.Tensor, b.torch.Tensor):
+def my_cool_layer_func(a: torch.Tensor, b: torch.Tensor):
     batch_size, seq_len, hidden = a.shape
     b_batch_size, class_ind = b.shape
     assert batch_size == b_batch_size
