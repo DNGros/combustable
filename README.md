@@ -48,7 +48,7 @@ def my_cool_layer_func(a: torch.Tensor, b: torch.Tensor):
 
 # With assertions on assign
 from combustable.assert_on_assign import eq
-def my_cool_layer_func(a: torch.Tensor, b.torch.Tensor):
+def my_cool_layer_func(a: torch.Tensor, b: torch.Tensor):
     batch_size, seq_len, hidden = a.shape
     eq[batch_size], class_ind = b.shape
     # If the first dim of `b` != batch_size we will get an error.
