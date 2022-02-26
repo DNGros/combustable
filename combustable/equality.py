@@ -29,7 +29,7 @@ class AssertTensor:
                     f"Tensors not on same device. Actual is {self.actual.device}. Expect {expected.device}")
                 raise TensorAssertionError()
         if isinstance(self.actual, torch.LongTensor):
-            epsilon = math.ceil(epsilon)
+            epsilon = round(epsilon)
         if isinstance(expected, list):
             if isinstance(self.actual, torch.LongTensor):
                 expected = torch.LongTensor(expected)
@@ -60,7 +60,7 @@ class AssertTensor:
             except RuntimeError as e:
                 print(e)
             else:
-                eqs = torch.lt(difs, epsilon)
+                eqs = torch.lte(difs, epsilon)
                 if torch.all(eqs):
                     return
 
@@ -69,7 +69,7 @@ class AssertTensor:
         print(f"Got:\n {self.actual}")
         if difs is not None:
             print(f"Difs:\n {difs}")
-        raise TensorAssertionError()
+        raise TensorAssertionError("See printed message above")
 
     def exactly_equals(self, expected: Union[torch.Tensor, Sequence]):
         return self.is_close_to(expected, epsilon=0)
