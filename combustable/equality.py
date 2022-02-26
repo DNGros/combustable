@@ -60,7 +60,7 @@ class AssertTensor:
             except RuntimeError as e:
                 print(e)
             else:
-                eqs = torch.lte(difs, epsilon)
+                eqs = torch.le(difs, epsilon)
                 if torch.all(eqs):
                     return
 
