@@ -71,7 +71,7 @@ class AssertTensor:
             print(f"Difs:\n {difs}")
         raise TensorAssertionError()
 
-    def is_equal_to(self, expected: Union[torch.Tensor, Sequence]):
+    def exactly_equals(self, expected: Union[torch.Tensor, Sequence]):
         return self.is_close_to(expected, epsilon=0)
 
     def has_shape(self, *expected: Optional[int]):
